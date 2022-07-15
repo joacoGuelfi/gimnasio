@@ -30,6 +30,7 @@ do {
 
                 const persona = new Persona(documento, nombre, apellido, edad)
                 personas.push(persona)
+                alert("Cliente agregado")
                 console.log(personas)
 
                 validacion = prompt("Desea igresar mas personas ? ").toLocaleLowerCase()
@@ -42,6 +43,7 @@ do {
                 quitarPos = personas.indexOf(quitarDoc)
                     if (quitarPos >=0) {
                         personas.splice(quitarPos, 1)
+                        alert("Se elimino correctamente.")
                     } else alert("No se ha encontrado la persona que desea eliminar.")
                 
                     console.log(personas)
@@ -50,6 +52,7 @@ do {
             break
         case 4:
             personas.sort((a, b) => a.documento - b.documento)
+            alert("Clientes ordenados por documento de menor a mayor")
             console.log(personas)
             break
         default:
