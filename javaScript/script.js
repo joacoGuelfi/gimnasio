@@ -30,26 +30,31 @@ do {
 
                 const persona = new Persona(documento, nombre, apellido, edad)
                 personas.push(persona)
+                console.log(personas)
 
                 validacion = prompt("Desea igresar mas personas ? ").toLocaleLowerCase()
             } while (validacion != "no");
             break
         case 2:
-            quitarDoc = personas.find((el) => el.documento === parseInt(prompt("Ingrese el documento del cliente que desea eliminar:")))
+                
+                quitarDoc = parseInt(prompt("Ingrese el documento del cliente que desea eliminar:"))
+                quitarDoc = personas.find((el) => el.documento === quitarDoc)
+                quitarPos = personas.indexOf(quitarDoc)
+                    if (quitarPos >=0) {
+                        personas.splice(quitarPos, 1)
+                    } else alert("No se ha encontrado la persona que desea eliminar.")
+                
+                    console.log(personas)
+            
 
-            quitarPos = personas.indexOf(quitarDoc)
-            if (quitarPos >= 0) {
-                personas.splice(quitarPos, 1)
-            } else alert("No se ha encontrado la persona que desea eliminar.")
-
+            break
+        case 4:
+            personas.sort((a, b) => a.documento - b.documento)
             console.log(personas)
-
             break
         default:
             alert("Por favor, ingrese un numero valido")
             break
-
-
     }
 
 
